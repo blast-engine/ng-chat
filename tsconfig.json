@@ -2,10 +2,6 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "src",
-    "paths": {
-      "$structure/*": [ "app/structure/*" ],
-      "$services/*": [ "app/services/*" ],
-    },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
