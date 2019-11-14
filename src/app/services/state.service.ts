@@ -1,14 +1,20 @@
 import { Injectable } from '@angular/core'
 
-export type IState = {
-    test: boolean;    
-}
+import { Emitter } from 'app/utils/emitter'
+
+// export type IState = {
+//     test: boolean;    
+// }
 
 @Injectable()
 export class StateService {
-    _state: IState
+    state$: Emitter<any> = new Emitter<any>({})
 
     constructor() {
-        (window as any).stateService = this 
+        (window as any).stateService = this
+    }
+
+    commit(state) {
+        this.state$.emit(state)
     }
 }

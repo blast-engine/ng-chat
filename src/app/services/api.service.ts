@@ -24,8 +24,8 @@ export class ApiService {
     }
 
     watch = (path: string, handler: (data: any) => void): { unsubscribe: () => void } => {
-        const wrappedHandler = snapshot => handler(snapshot.val())
         const ref = this.database.ref(path)
+        const wrappedHandler = snapshot => handler(snapshot.val())
         ref.on('value', wrappedHandler)
         const unsubscribe = () => ref.off('value', wrappedHandler)
         return { unsubscribe }
@@ -33,6 +33,9 @@ export class ApiService {
 
     // fetch = () => {}
 
-    // update = (path: string, data: ) => 
+    update = (path: string, data: any): Promise<any> => {
+        const ref = this.database.ref(path)
+        return ref.update(data)
+    } 
 
 }

@@ -9,8 +9,24 @@ import { StateService } from 'app/services/state.service'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  theString: string = ''
+
   constructor(
     private apiService: ApiService,
     private stateService: StateService
   ) {}
+
+  ngOnInit() {
+    this.apiService.watch('theString', theString => {
+      this.stateService.commit({ theString })
+    })
+    this.stateService.state$.subscribe(state => {
+      this.theString = state.theString
+    })
+  }
+
+  handleInputUpdate(event) {
+    this.apiService.update('/', { theString: event.target.value })
+  }
 }
