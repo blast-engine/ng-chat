@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core'
 import { RouterModule } from '@angular/router'
 
 import { ApiService } from 'app/services/api.service'
+import { StateService } from 'app/services/state.service'
 import { AppComponent } from 'app/structure/app.component'
 import { appRoutes } from 'app/structure/app.routes'
 import { RoomContainerComponent } from './structure/room/room-container/room-container.component'
@@ -16,7 +17,8 @@ import { RoomContainerComponent } from './structure/room/room-container/room-con
     RouterModule.forRoot(appRoutes)
   ],
   providers: [ 
-    ApiService 
+    ApiService,
+    StateService
   ],
   bootstrap: [
     AppComponent

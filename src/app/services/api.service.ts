@@ -3,7 +3,6 @@ import { initializeApp, database, auth } from 'firebase'
 
 @Injectable()
 export class ApiService {
-
     auth: auth.Auth
     database: database.Database
 

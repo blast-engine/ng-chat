@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { ApiService } from 'app/services/api.service'
+import { StateService } from 'app/services/state.service'
 
 @Component({ 
   selector: 'app-root',
@@ -8,9 +9,8 @@ import { ApiService } from 'app/services/api.service'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ng-chat';
-
-  constructor(private apiService: ApiService) {
-    
-  }
+  constructor(
+    private apiService: ApiService,
+    private stateService: StateService
+  ) {}
 }
