@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core'
 import { initializeApp, database, auth } from 'firebase'
 
-import { Emitter } from 'app/utils/emitter'
-
 @Injectable()
 export class ApiService {
 

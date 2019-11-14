@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router'
 
-import { RoomComponent } from 'app/structure/room/room.component'
+import { RoomContainerComponent } from 'app/structure/room/room-container/room-container.component'
 
 export const appRoutes: Routes = [
-    { path: 'room', component: RoomComponent }
+    { path: 'room', component: RoomContainerComponent }
 ]
