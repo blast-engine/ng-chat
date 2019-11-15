@@ -40,11 +40,11 @@ export class AppComponent {
       }
     })
     
-    this.apiService.subscribeToAuth(user => {
-      const currentState = this.stateService.state();
-      const newState = updateCurrentUserId(currentState, {uid: user ? user.uid : null});
-      this.stateService.commit(newState);
-    })
+    // this.apiService.subscribeToAuth(user => {
+    //   const currentState = this.stateService.state();
+    //   const newState = updateCurrentUserId(currentState, {uid: user ? user.uid : null});
+    //   this.stateService.commit(newState);
+    // })
   }
 
   handleInputUpdate(event) {

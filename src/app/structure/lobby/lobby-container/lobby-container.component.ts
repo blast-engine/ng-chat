@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { StateService } from 'app/services/state.service';
 import { ApiService } from 'app/services/api.service';
 
@@ -42,7 +42,8 @@ export class LobbyContainerComponent {
   
   constructor(
     private stateService: StateService,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private changeDetectorRef: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
@@ -58,7 +59,7 @@ export class LobbyContainerComponent {
         return
       } 
         
-      const rooms = state.roomBasics
+      const rooms = (Object.values(state.roomBasics) as any)
         .filter(room => state.userBasics[room.creatorId])
         .map(room => {
           const creatorBasic = state.userBasics[room.creatorId]
@@ -77,12 +78,17 @@ export class LobbyContainerComponent {
         rooms
       }
       
+      this.changeDetectorRef.detectChanges()
     })
   }
 
   handleCreateButton() {
+    const creatorId = this.stateService.state().currentUserId
+    if (!creatorId) return
+
     const room = { 
-      name: this.temp.inputText, 
+      name: this.temp.inputText,
+      creatorId,
       id: guid()
     }
     this.apiService.update(`room-basics/${room.id}`, room)

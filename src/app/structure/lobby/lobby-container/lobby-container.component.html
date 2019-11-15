@@ -6,6 +6,7 @@
 </div>
 <div *ngIf="view.ready">
   <div *ngFor="let room of view.rooms">
-
+    <h2>{{ room.name }}</h2>
+    <div>created by: {{ room.creator.name }}</div>
   </div>
 </div>

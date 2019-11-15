@@ -41,4 +41,8 @@ export class ApiService {
     subscribeToAuth = handler => {
         this.auth.onAuthStateChanged(handler)
     }
+
+    signIn = () => {
+        this.auth.signInAnonymously()
+    }
 }
