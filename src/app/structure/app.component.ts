@@ -10,14 +10,17 @@ const updateCurrentUserId = (state, { uid }) => {
 	}
 }
 
+interface IViewModel {
+  userId: string
+}
+
 @Component({ 
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-  theString: string = ''
+  view: IViewModel
 
   constructor(
     private apiService: ApiService,
@@ -29,16 +32,17 @@ export class AppComponent {
     //   this.stateService.commit({ theString })
     // })
     this.stateService.state$.subscribe(state => {
-      this.theString = state.theString;
-      console.log(state);
+      this.view = {
+        ...this.view,
+        userId: state.currentUserId
+      }
     })
     
-    this.apiService.auth.onAuthStateChanged(user => 
-      {
-        const currentState = this.stateService.getCurrentState();
-        const newState = updateCurrentUserId(currentState, {uid: user ? user.uid : null});
-        this.stateService.commit(newState);
-      })
+    this.apiService.subscribeToAuth(user => {
+      const currentState = this.stateService.state();
+      const newState = updateCurrentUserId(currentState, {uid: user ? user.uid : null});
+      this.stateService.commit(newState);
+    })
   }
 
   handleInputUpdate(event) {

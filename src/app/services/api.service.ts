@@ -37,5 +37,8 @@ export class ApiService {
         const ref = this.database.ref(path)
         return ref.update(data)
     } 
-
+    
+    subscribeToAuth = handler => {
+        this.auth.onAuthStateChanged(handler)
+    }
 }

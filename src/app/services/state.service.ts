@@ -10,11 +10,8 @@ import { Emitter } from 'app/utils/emitter'
 export class StateService {
     state$: Emitter<any> = new Emitter<any>({})
 
-    constructor() {
-        (window as any).stateService = this
-    }
+    constructor() { (window as any).stateService = this }
 
-    commit(state) {
-        this.state$.emit(state)
-    }
+    commit = (state) => this.state$.emit(state)
+    state = () => this.state$.lastValue
 }
