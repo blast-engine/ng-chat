@@ -7,11 +7,12 @@ import { ApiService } from 'app/services/api.service'
 import { StateService } from 'app/services/state.service'
 import { AppComponent } from 'app/structure/app.component'
 import { appRoutes } from 'app/structure/app.routes'
-import { RoomContainerComponent } from './structure/room/room-container/room-container.component';
-import { LobbyContainerComponent } from './structure/lobby/lobby-container/lobby-container.component';
-import { LobbyEffectsComponent } from './structure/lobby/lobby-effects/lobby-effects.component';
-import { LobbyComponent } from './structure/lobby/lobby.component';
+import { RoomContainerComponent } from './structure/room/room-container/room-container.component'
+import { LobbyContainerComponent } from './structure/lobby/lobby-container/lobby-container.component'
+import { LobbyEffectsComponent } from './structure/lobby/lobby-effects/lobby-effects.component'
+import { LobbyComponent } from './structure/lobby/lobby.component'
 import { AuthEffectsComponent } from './structure/auth/auth-effects/auth-effects.component'
+import { ProfileSettingsComponent } from './structure/me/profile-settings/profile-settings.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { AuthEffectsComponent } from './structure/auth/auth-effects/auth-effects
     LobbyContainerComponent,
     LobbyEffectsComponent,
     LobbyComponent,
-    AuthEffectsComponent
+    AuthEffectsComponent,
+    ProfileSettingsComponent
   ],
   imports: [
     BrowserModule,

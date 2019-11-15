@@ -1,6 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { StateService } from 'app/services/state.service';
-import { ApiService } from 'app/services/api.service';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core'
+import { StateService } from 'app/services/state.service'
+import { ApiService } from 'app/services/api.service'
 
 const guid = () => Date.now() + ''
 
@@ -72,6 +72,7 @@ export class LobbyContainerComponent {
           }
         })
 
+      console.log(rooms)
       this.view = {
         ...this.view,
         ready: true,

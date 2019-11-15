@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 
 import { ApiService } from 'app/services/api.service'
 import { StateService } from 'app/services/state.service'
@@ -10,8 +10,13 @@ const updateCurrentUserId = (state, { uid }) => {
 	}
 }
 
+interface IUserBasic {
+  name: string, 
+  id: string
+}
+
 interface IViewModel {
-  userId: string | null
+  user: IUserBasic | null
 }
 
 @Component({ 
@@ -21,7 +26,7 @@ interface IViewModel {
 })
 export class AppComponent {
   view: IViewModel = {
-    userId: null
+    user: null
   }
 
   constructor(
@@ -36,14 +41,14 @@ export class AppComponent {
     this.stateService.state$.subscribe(state => {
       this.view = {
         ...this.view,
-        userId: state.currentUserId
+        user: state.currentUser
       }
     })
     
     // this.apiService.subscribeToAuth(user => {
-    //   const currentState = this.stateService.state();
-    //   const newState = updateCurrentUserId(currentState, {uid: user ? user.uid : null});
-    //   this.stateService.commit(newState);
+    //   const currentState = this.stateService.state()
+    //   const newState = updateCurrentUserId(currentState, {uid: user ? user.uid : null})
+    //   this.stateService.commit(newState)
     // })
   }
 

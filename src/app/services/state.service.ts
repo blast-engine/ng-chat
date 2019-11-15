@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core'
 import { Emitter } from 'app/utils/emitter'
 
 // export type IState = {
-//     test: boolean;    
+//     test: boolean    
 // }
 
 @Injectable()

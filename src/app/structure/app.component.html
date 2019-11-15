@@ -1,3 +1,5 @@
-<h1>user id: {{view.userId}}</h1>
+<h1 *ngIf="view.user">user id: {{view.user.id}}</h1>
+<h1 *ngIf="view.user">user name: {{view.user.name}}</h1>
 <router-outlet></router-outlet>
+<app-profile-settings></app-profile-settings>
 <app-auth-effects></app-auth-effects>
