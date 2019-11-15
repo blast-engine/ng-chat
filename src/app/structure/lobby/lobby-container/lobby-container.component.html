@@ -1,0 +1,11 @@
+<p>lobby-container works!</p>
+<div>
+  add room: 
+  <input [(ngModel)]="temp.inputText">
+  <button (click)="handleCreateButton()">create</button>
+</div>
+<div *ngIf="view.ready">
+  <div *ngFor="let room of view.rooms">
+
+  </div>
+</div>

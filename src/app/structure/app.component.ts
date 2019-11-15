@@ -11,7 +11,7 @@ const updateCurrentUserId = (state, { uid }) => {
 }
 
 interface IViewModel {
-  userId: string
+  userId: string | null
 }
 
 @Component({ 
@@ -20,7 +20,9 @@ interface IViewModel {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  view: IViewModel
+  view: IViewModel = {
+    userId: null
+  }
 
   constructor(
     private apiService: ApiService,
